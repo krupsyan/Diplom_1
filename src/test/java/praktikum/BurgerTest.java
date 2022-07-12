@@ -23,15 +23,10 @@ public class BurgerTest {
     @Mock
     Ingredient secondIngredient;
 
-    @Mock
-    Burger burger;
-
     @Test
-
     public void setBunsSetsCorrectValue() {
         //Arrange
         Burger burger = new Burger();
-        Bun bun = new Bun("с маком", 1.01f);
 
         //Act
         burger.setBuns(bun);
@@ -44,24 +39,22 @@ public class BurgerTest {
     public void addIngredientWorksCorrectly() {
         //Arrange
         Burger burger = new Burger();
-        Ingredient ingredient = new Ingredient(SAUCE, "горчичный", 1.0f);
 
         //Act
-        burger.addIngredient(ingredient);
+        burger.addIngredient(firstIngredient);
         Ingredient actualIngredient = burger.ingredients.get(0);
 
         //Assert
-        assertEquals(actualIngredient, ingredient);
+        assertEquals(actualIngredient, firstIngredient);
     }
 
     @Test
     public void removeIngredientWorksCorrectly() {
         //Arrange
         Burger burger = new Burger();
-        Ingredient ingredient = new Ingredient(SAUCE, "горчичный", 1.0f);
 
         //Act
-        burger.addIngredient(ingredient);
+        burger.addIngredient(firstIngredient);
         burger.removeIngredient(0);
 
         //Assert
@@ -72,8 +65,6 @@ public class BurgerTest {
     public void moveIngredientWorksCorrectly() {
         //Arrange
         Burger burger = new Burger();
-        Ingredient firstIngredient = new Ingredient(SAUCE, "горчичный", 1.01f);
-        Ingredient secondIngredient = new Ingredient(FILLING, "перчик", 1.02f);
         burger.addIngredient(firstIngredient);
         burger.addIngredient(secondIngredient);
 
